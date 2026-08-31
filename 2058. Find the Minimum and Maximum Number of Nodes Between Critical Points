@@ -1,0 +1,40 @@
+class Solution {
+    public int[] nodesBetweenCriticalPoints(ListNode head) {
+        int first = -1;
+        int prevCritical = -1;
+        int minDist = Integer.MAX_VALUE;
+
+        ListNode prev = head;
+        ListNode curr = head.next;
+        int pos = 1;
+
+        while (curr != null && curr.next != null) {
+            if ((curr.val > prev.val && curr.val > curr.next.val) ||
+                (curr.val < prev.val && curr.val < curr.next.val)) {
+
+                if (first == -1) {
+                    first = pos;
+                }
+
+                if (prevCritical != -1) {
+                    minDist = Math.min(minDist, pos - prevCritical);
+                }
+
+                prevCritical = pos;
+            }
+
+            prev = curr;
+            curr = curr.next;
+            pos++;
+        }
+
+        if (first == -1 || first == prevCritical) {
+            return new int[]{-1, -1};
+        }
+
+        return new int[]{
+            minDist,
+            prevCritical - first
+        };
+    }
+}
