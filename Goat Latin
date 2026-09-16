@@ -1,0 +1,26 @@
+class Solution {
+    public String toGoatLatin(String sentence) {
+        char[] vo = {'a', 'e', 'i', 'o', 'u','A','E','I','O','U'};
+        String[] words = sentence.split(" ");
+        for (int i = 0; i < words.length; i++) {
+            boolean vowel = false;
+            for (int k = 0; k < vo.length; k++) {
+                if (words[i].charAt(0) == vo[k]) {
+                    vowel = true;
+                    break;
+                }
+            }
+            if (vowel) {
+                words[i] = words[i] + "ma";
+            } else {
+                words[i] = words[i].substring(1)
+                        + words[i].charAt(0)
+                        + "ma";
+            }
+            for (int j = 0; j <= i; j++) {
+                words[i] += "a";
+            }
+        }
+        return String.join(" ", words);
+    }
+}
