@@ -11,8 +11,7 @@ class Solution {
                 if (depth > 0) result.append(ch);
             }
         }
-
-        return result.toString();
+return result.toString();
     }
 }
 
