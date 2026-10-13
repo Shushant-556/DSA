@@ -7,7 +7,7 @@ class Solution {
                 if (depth > 0) result.append(ch);
                 depth++;
             } else {
-                depth--;
+                depth--;   
                 if (depth > 0) result.append(ch);
             }
         }  
