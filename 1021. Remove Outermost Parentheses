@@ -11,7 +11,7 @@ for (char ch : s.toCharArray()) {
                 if (depth > 0) result.append(ch);
             }
         }   
-        return result.toString();
+    return result.toString();
     }
 }
 
