@@ -1,0 +1,52 @@
+import java.util.Arrays;
+
+class Solution {
+    public int minSwaps(int[] nums) {
+        int n = nums.length;
+        Integer[] indices = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            indices[i] = i;
+        }
+
+        Arrays.sort(indices, (i, j) -> {
+            int sumI = getDigitSum(nums[i]);
+            int sumJ = getDigitSum(nums[j]);
+            if (sumI != sumJ) {
+                return Integer.compare(sumI, sumJ);
+            }
+            return Integer.compare(nums[i], nums[j]);
+        });
+
+        boolean[] visited = new boolean[n];
+        int swaps = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (visited[i] || indices[i] == i) {
+                continue;
+            }
+
+            int j = i;
+            int cycleSize = 0;
+            while (!visited[j]) {
+                visited[j] = true;
+                j = indices[j];
+                cycleSize++;
+            }
+
+            if (cycleSize > 0) {
+                swaps += (cycleSize - 1);
+            }
+        }
+
+        return swaps;
+    }
+
+    private int getDigitSum(int num) {
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        return sum;
+    }
+}
