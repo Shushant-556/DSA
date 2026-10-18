@@ -15,7 +15,6 @@ class Solution {
         for (int num : nums) {
             list.add(num);
         }
-
         return (int) ((solve(list) - 1 + MOD) % MOD);
     }
 
