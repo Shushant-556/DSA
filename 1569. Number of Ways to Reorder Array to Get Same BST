@@ -2,7 +2,6 @@ import java.util.*;
 class Solution {
     static final int MOD = 1000000007;
     long[][] c;
-
     public int numOfWays(int[] nums) {
         int n = nums.length;
         c = new long[n + 1][n + 1];
