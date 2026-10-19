@@ -16,7 +16,6 @@ class Solution {
         for (int i = 0; i < targetCount; i++) {
             result.add(lessThanTargetCount + i);
         }
-        
-        return result;
+      return result;
     }
 }
