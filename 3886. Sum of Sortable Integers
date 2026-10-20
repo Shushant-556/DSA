@@ -4,7 +4,6 @@ class Solution {
         int[] prefMax = new int[n + 1];
         int[] suffMin = new int[n + 1];
         int[] prefDrop = new int[n];
-
         for (int i = 0; i < n; i++) {
             prefMax[i + 1] = Math.max(prefMax[i], nums[i]);
         }
