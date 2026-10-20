@@ -1,7 +1,6 @@
 class Solution {
     public int sortableIntegers(int[] nums) {
         int n = nums.length;
-
         int[] prefMax = new int[n + 1];
         int[] suffMin = new int[n + 1];
         int[] prefDrop = new int[n];
