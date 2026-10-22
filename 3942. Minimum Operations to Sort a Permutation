@@ -10,20 +10,16 @@ class Solution {
             }
         }
         int ans = Integer.MAX_VALUE;
-
         for (int step : new int[]{1, -1}) {
             boolean valid = true;
-
             for (int i = 1; i < n; i++) {
                 int prev = (zero + (i - 1) * step + n) % n;
                 int curr = (zero + i * step + n) % n;
-
                 if (nums[prev] > nums[curr]) {
                     valid = false;
                     break;
                 }
             }
-
             if (valid) {
                 if (step == 1) {
                     ans = Math.min(ans, zero);
