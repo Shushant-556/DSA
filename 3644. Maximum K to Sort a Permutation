@@ -6,7 +6,6 @@ class Solution {
                 ans &= nums[i];
             }
         }
-
         return Math.max(ans, 0);
     }
 }
