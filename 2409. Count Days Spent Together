@@ -5,7 +5,6 @@ class Solution {
         int a2 = convert(leaveAlice, days);
         int b1 = convert(arriveBob, days);
         int b2 = convert(leaveBob, days);
-
         int start = Math.max(a1, b1);
         int end = Math.min(a2, b2);
 
