@@ -3,7 +3,6 @@ class Solution {
         int MOD = 1_000_000_007;
         int m = grid.length;
         int n = grid[0].length;
-
         int[][][] dp = new int[m][n][2];
 
         dp[0][0][0] = 1;
