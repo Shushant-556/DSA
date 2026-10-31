@@ -10,7 +10,6 @@ class Solution {
                 int right = dp[i][j][0];
                 int down = dp[i][j][1];
                 if (grid[i][j] == 0) {
-
                     if (j + 1 < n) {
                         dp[i][j + 1][0] =
                             (int)((dp[i][j + 1][0] + (long)right + down) % MOD);
