@@ -1,7 +1,7 @@
 # Max Value Permutation | Practice | GeeksforGeeks
 
 - Problem URL: https://www.geeksforgeeks.org/problems/maximize-arrii-of-an-array0026/1
-- Generated at UTC: 2026-11-11T19:18:36.927724+00:00
+- Generated at UTC: 2026-11-11T19:23:12.572880+00:00
 - Java compilation: {'enabled': False, 'ok': None}
 
 ## Problem Statement
@@ -65,10 +65,8 @@ Java (21)
 4
 5
 6
-7
+import java.util.Arrays;
 class Solution {
-    int maxValue(int arr[]) {
-        // Complete the function
     }
 }
 Custom InputCompile & RunSubmit
@@ -94,10 +92,8 @@ Java (21)
 4
 5
 6
-7
+import java.util.Arrays;
 class Solution {
-    int maxValue(int arr[]) {
-        // Complete the function
     }
 }
 Custom InputCompile & RunSubmit
@@ -137,31 +133,29 @@ Java (21)
 4
 5
 6
-7
+import java.util.Arrays;
 class Solution {
-    int maxValue(int arr[]) {
-        // Complete the function
     }
 }
 Custom InputCompile & RunSubmit
 
 ## Approach
 
-To maximize the sum of products of array elements with their respective indices (i.e., $\sum arr[i] \times i$), we should pair the smallest elements with the smallest indices and the largest elements with the largest indices. This is a direct consequence of the rearrangement inequality. Therefore, we first sort the array in ascending order. Then, we iterate through the sorted array, compute the product of each element with its index, sum them up, and take the result modulo $10^9 + 7$.
+To maximize the sum of arr[i] * i, we should multiply the smallest elements with the smallest indices and the largest elements with the largest indices. This is a direct application of the rearrangement inequality. First, we sort the array in ascending order. Then, we iterate through the sorted array, compute the product of each element and its index, sum them up, and take the modulo 10^9 + 7 to prevent overflow and match problem requirements.
 
 ## Correctness
 
-The greedy approach of pairing larger values with larger indices maximizes the sum of products according to the rearrangement inequality. Sorting takes $O(N \log N)$ time and the linear scan takes $O(N)$ time. The modulo operation prevents integer overflow during intermediate multiplications and additions.
+Sorting the array ensures that the smallest values are at indices 0, 1, etc., and the largest values are at the end (largest indices). According to the rearrangement inequality, matching the largest elements with the largest multipliers yields the maximum possible sum.
 
 ## Complexity
 
-- Time: O(N log N) due to sorting the array of size N.
-- Space: O(1) auxiliary space (or O(log N) depending on the sorting algorithm's stack space).
+- Time: O(N log N) due to sorting the array of size N, where N is the number of elements in arr.
+- Space: O(1) auxiliary space if sorting in-place, or O(log N) depending on the sorting algorithm implementation in Java.
 
 ## Edge Cases
 
-Arrays with duplicate elements, arrays of size 1, arrays with maximum constraints values. All are handled correctly.
+Arrays with duplicate elements, single-element arrays, and arrays where all elements are identical.
 
 ## Signature Notes
 
-The method signature `int maxValue(int arr[])` matches the standard GFG problem definition.
+The method signature expected by GeeksforGeeks is int Maximize(int arr[]).
