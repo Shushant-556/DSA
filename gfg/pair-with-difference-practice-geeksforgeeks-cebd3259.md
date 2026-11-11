@@ -1,7 +1,7 @@
 # Pair With Difference | Practice | GeeksforGeeks
 
 - Problem URL: https://www.geeksforgeeks.org/problems/find-pair-given-difference1559/1
-- Generated at UTC: 2026-11-11T18:42:22.286297+00:00
+- Generated at UTC: 2026-11-11T18:59:39.049608+00:00
 - Java compilation: {'enabled': False, 'ok': None}
 
 ## Problem Statement
@@ -142,21 +142,21 @@ Custom InputCompile & RunSubmit
 
 ## Approach
 
-We can solve this problem efficiently by sorting the array and using a two-pointer approach. First, we sort the array in ascending order. Then we maintain two pointers, i and j, both starting near the beginning (e.g., i = 0, j = 1). We check the difference arr[j] - arr[i]. If the difference is equal to x and i != j, we return true. If the difference is less than x, we increment j to increase the difference. If the difference is greater than x, we increment i to decrease the difference. If i catches up to j, we increment j as well. This covers all possible pairs in linearithmic time after sorting.
+We can solve this problem efficiently using sorting and the two-pointer technique. First, sort the array in ascending order. Then, use two pointers, i and j, starting at index 0 and 1 respectively. If the difference arr[j] - arr[i] equals x and i != j, we return true. If the difference is less than x, we increment j to increase the difference. If the difference is greater than x, we increment i to decrease the difference. If i catches up with j, we increment j as well.
 
 ## Correctness
 
-The two-pointer technique works correctly on sorted arrays because the elements are ordered, allowing us to monotonically increase or decrease the difference by advancing either the left or right pointer. The condition i != j ensures we do not pick the same element twice when x = 0.
+Sorting the array allows us to systematically search for a pair with the target difference using two pointers. Since all elements are positive and the array is sorted, increasing j increases the difference, and increasing i decreases the difference, ensuring no valid pairs are missed.
 
 ## Complexity
 
-- Time: O(N log N) due to sorting the array, where N is the size of the array. The two-pointer traversal takes O(N) time.
+- Time: O(N log N) due to the sorting step, where N is the size of the array. The two-pointer traversal takes O(N) time.
 - Space: O(1) auxiliary space (ignoring the space used by the sorting algorithm).
 
 ## Edge Cases
 
-x = 0 (looking for identical elements), array with only one element, duplicate elements in the array, negative numbers (though constraints state arr[i] >= 1), and arrays with no valid pair.
+Array with a single element (returns false), x = 0 (looking for duplicate elements with difference 0), duplicate elements in the array, negative or zero values in array (though constraints say arr[i] >= 1).
 
 ## Signature Notes
 
-The method signature matches the GeeksforGeeks template: boolean findPair(int[] arr, int x).
+The method takes an integer array arr[] and an integer x, and returns a boolean indicating whether a pair with the absolute difference x exists.
