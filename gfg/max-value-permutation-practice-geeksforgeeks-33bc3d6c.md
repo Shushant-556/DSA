@@ -1,7 +1,7 @@
 # Max Value Permutation | Practice | GeeksforGeeks
 
 - Problem URL: https://www.geeksforgeeks.org/problems/maximize-arrii-of-an-array0026/1
-- Generated at UTC: 2026-11-11T19:18:17.188860+00:00
+- Generated at UTC: 2026-11-11T19:18:36.927724+00:00
 - Java compilation: {'enabled': False, 'ok': None}
 
 ## Problem Statement
@@ -147,21 +147,21 @@ Custom InputCompile & RunSubmit
 
 ## Approach
 
-To maximize the sum of products of array elements and their respective indices (arr[i] * i), we should pair the smallest elements with the smallest indices and the largest elements with the largest indices according to rearrangement inequality. Therefore, we first sort the array in ascending order. Then, we iterate through the sorted array, multiply each element by its index, sum them up, and take the result modulo 10^9 + 7.
+To maximize the sum of products of array elements with their respective indices (i.e., $\sum arr[i] \times i$), we should pair the smallest elements with the smallest indices and the largest elements with the largest indices. This is a direct consequence of the rearrangement inequality. Therefore, we first sort the array in ascending order. Then, we iterate through the sorted array, compute the product of each element with its index, sum them up, and take the result modulo $10^9 + 7$.
 
 ## Correctness
 
-Sorting the array ensures that the smallest values align with index 0, 1, 2, ..., and larger values align with larger indices. This maximizes the dot product of the array and the index sequence. Using 'long' for accumulation prevents integer overflow before applying the modulo operation.
+The greedy approach of pairing larger values with larger indices maximizes the sum of products according to the rearrangement inequality. Sorting takes $O(N \log N)$ time and the linear scan takes $O(N)$ time. The modulo operation prevents integer overflow during intermediate multiplications and additions.
 
 ## Complexity
 
-- Time: O(N log N) due to sorting the array of size N, where N is the length of the array.
+- Time: O(N log N) due to sorting the array of size N.
 - Space: O(1) auxiliary space (or O(log N) depending on the sorting algorithm's stack space).
 
 ## Edge Cases
 
-Arrays with duplicate elements, arrays of size 1, and arrays with all identical elements.
+Arrays with duplicate elements, arrays of size 1, arrays with maximum constraints values. All are handled correctly.
 
 ## Signature Notes
 
-int maxValue(int arr[]) matching the GFG problem statement.
+The method signature `int maxValue(int arr[])` matches the standard GFG problem definition.
