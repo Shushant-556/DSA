@@ -1,7 +1,7 @@
 # Sort 0s, 1s and 2s | Practice | GeeksforGeeks
 
 - Problem URL: https://www.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1
-- Generated at UTC: 2026-11-11T19:36:50.883933+00:00
+- Generated at UTC: 2026-11-11T19:45:04.143790+00:00
 - Java compilation: {'enabled': False, 'ok': None}
 
 ## Problem Statement
@@ -59,10 +59,8 @@ Java (21)
 3
 4
 5
-6
 class Solution {
     public void sort012(int[] arr) {
-        // code here
         
     }
 }
@@ -90,10 +88,8 @@ Java (21)
 3
 4
 5
-6
 class Solution {
     public void sort012(int[] arr) {
-        // code here
         
     }
 }
@@ -132,10 +128,8 @@ Java (21)
 3
 4
 5
-6
 class Solution {
     public void sort012(int[] arr) {
-        // code here
         
     }
 }
@@ -143,21 +137,21 @@ Custom InputCompile & RunSubmit
 
 ## Approach
 
-We use the Dutch National Flag algorithm. We maintain three pointers: low, mid, and high. Initially, low and mid are set to 0, and high is set to arr.length - 1. We traverse the array with the mid pointer. If arr[mid] is 0, we swap arr[low] and arr[mid], then increment both low and mid. If arr[mid] is 1, we simply increment mid. If arr[mid] is 2, we swap arr[mid] and arr[high], and decrement high (without incrementing mid, since the swapped element from high needs to be processed). This partitions the array into 0s on the left, 1s in the middle, and 2s on the right in a single pass.
+We use the Dutch National Flag algorithm. We maintain three pointers: low, mid, and high. Initially, low and mid point to the start of the array (0), and high points to the end of the array (arr.length - 1). We iterate with mid from 0 to high: 1. If arr[mid] == 0, we swap arr[low] and arr[mid], then increment both low and mid. 2. If arr[mid] == 1, it is in the correct middle section, so we just increment mid. 3. If arr[mid] == 2, we swap arr[mid] and arr[high], then decrement high. Note that when arr[mid] is swapped with arr[high], we do not increment mid because the element swapped from high has not been examined yet.
 
 ## Correctness
 
-The Dutch National Flag algorithm correctly places all 0s to the left of the 'low' pointer, all 2s to the right of the 'high' pointer, and all 1s between 'low' and 'mid' pointers. By checking every element with 'mid' and correctly shrinking the boundaries, the algorithm terminates when 'mid' crosses 'high', ensuring the entire array is sorted.
+The algorithm correctly partitions the array into three regions: elements < low are 0s, elements between low and mid-1 are 1s, and elements > high are 2s. The loop invariant holds throughout, and since mid advances toward high at each step where no 2 is swapped, termination is guaranteed in a single pass.
 
 ## Complexity
 
-- Time: O(N) where N is the length of the array, since we traverse the array at most once.
-- Space: O(1) as we only use a few integer variables for pointers.
+- Time: O(N) where N is the size of the array, as each element is visited at most once by the mid pointer.
+- Space: O(1) auxiliary space as sorting is performed in place using a few pointer variables.
 
 ## Edge Cases
 
-Arrays with all 0s, all 1s, or all 2s; arrays already sorted; arrays in reverse sorted order; and arrays of length 1.
+Array with all 0s, all 1s, or all 2s; array already sorted; array with only two types of elements; array of minimum length (1).
 
 ## Signature Notes
 
-The method signature is 'public void sort012(int[] arr)', which modifies the array in-place and expects no return value.
+The method takes an integer array arr and sorts it in-place, returning void, matching the exact GeeksforGeeks signature.
