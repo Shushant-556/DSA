@@ -26,6 +26,5 @@ class Solution {
         int declen=maxdec+1;
         if(c==nums.length-1) return 1;
         return Math.max(inclen,declen);
-
     }
 }
