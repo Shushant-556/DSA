@@ -1,0 +1,28 @@
+class Solution {
+    public String makeGood(String s) {
+        ArrayList<Character> ar = new ArrayList<>();
+        int k = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (k > 0 &&
+                ((Character.isUpperCase(ar.get(k - 1)) &&
+                  Character.isLowerCase(s.charAt(i))) ||
+                 (Character.isLowerCase(ar.get(k - 1)) &&
+                  Character.isUpperCase(s.charAt(i)))) &&
+                Character.toLowerCase(ar.get(k - 1)) == Character.toLowerCase(s.charAt(i))) {
+
+                ar.remove(k - 1);
+                k--;
+            } else {
+                ar.add(s.charAt(i));
+                k++;
+            }
+        }
+        String str = "";
+        for (int i = 0; i < ar.size(); i++) {
+            str += ar.get(i);
+        }
+
+        return str;
+    }
+}
